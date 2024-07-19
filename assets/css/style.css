@@ -1148,3 +1148,16 @@ body { background: var(--white); }
   width: 80%;
   height: 80%;
 }
+.page-title {
+  text-align: center;
+  margin: 100px 0;
+  padding: 10px;
+  background-color: #89fefd5a;
+  border-radius: 8px;
+}
+
+.page-title h1 {
+  font-size: 3em;
+  color: #333;
+  margin: 0;
+}
