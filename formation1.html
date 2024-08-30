@@ -12,48 +12,70 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Poppins:wght@600;700&family=Rubik:wght@400;500&display=swap"
     rel="stylesheet">
+  <style>
+    /* Hides the main content initially */
+    #protectedContent {
+      display: none;
+    }
+    /* Styles for the login form */
+    #loginForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    #loginForm input, #loginForm button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 
 <body id="top">
 
+<!-- Password Protection Form -->
+<div id="loginForm">
+  <h2>أدخل كلمة المرور للوصول إلى المحتوى</h2>
+  <input type="password" id="passwordInput" placeholder="أدخل كلمة المرور">
+  <button onclick="checkPassword()">دخول</button>
+</div>
+
+<!-- Main content of the page -->
+<div id="protectedContent">
   <header class="header" data-header>
     <div class="container">
-
       <div class="overlay" data-overlay></div>
-
       <a href="#" class="logo">
         <img src="./assets/images/logo.svg" alt="Eduland logo">
       </a>
-
       <button class="menu-open-btn" data-menu-open-btn>
         <ion-icon name="menu-outline"></ion-icon>
       </button>
-
       <nav class="navbar" data-navbar>
-
         <button class="menu-close-btn" data-menu-close-btn>
           <ion-icon name="close-outline"></ion-icon>
         </button>
         <div class="button-container">
-        <a href="http://wa.me/212669995917">  <button class="btn btn-secondary">WhatsApp</button></a>
+          <a href="http://wa.me/212669995917"><button class="btn btn-secondary">WhatsApp</button></a>
         </div>
-        
-
       </nav>
-
     </div>
   </header>
+  
+  <!-- Your main page content starts here -->
   <main> 
-     <div class="video-container">
+    <div class="video-container">
       <div class="container">
-        <h1 class="page-title">دورة الاسعافات الاولية </h1>
+        <h1 class="page-title">دورة الاسعافات الاولية</h1>
       </div>
-        <h2>مقدمة الدورة </h2>
-        <video controls>
-             <source src="video/intro1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-         </video> 
-     </div>
+      <h2>مقدمة الدورة</h2>
+      <video controls>
+        <source src="video/intro1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video> 
+    </div>
+
      <div class="video-container">
         <h2> التعرف على المواقف الطارئة و الخطوات الأولى :</h2>
         <video controls>
@@ -283,14 +305,29 @@
     </div>
   </section>
   </main>
+
   <a href="#top" class="go-top" data-go-top>
     <ion-icon name="arrow-up"></ion-icon>
   </a>
+</div>
 
-  <script src="./assets/js/script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="./assets/js/script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<script>
+  function checkPassword() {
+    const password = document.getElementById('passwordInput').value;
+    const correctPassword = 'aTzyQ4Hxg'; // Set your password here
+
+    if (password === correctPassword) {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('protectedContent').style.display = 'block';
+    } else {
+      alert('كلمة المرور غير صحيحة. حاول مرة أخرى.');
+    }
+  }
+</script>
 
 </body>
-
 </html>
